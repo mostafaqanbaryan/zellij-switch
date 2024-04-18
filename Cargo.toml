@@ -1,0 +1,14 @@
+[package]
+name = "zellij-attach"
+version = "0.1.0"
+authors = ["Mostafa Qanbaryan <mostafaqanbaryan@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+ansi_term = "0.12.1"
+chrono = "0.4.0"
+fuzzy-matcher = "0.3.7"
+unicode-width = "0.1.10"
+humantime = "2.1.0"
+uuid = { version = "1.7.0", features = ["v4"] }
+zellij-tile = "0.40.0"
