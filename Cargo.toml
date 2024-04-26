@@ -1,5 +1,5 @@
 [package]
-name = "zellij-attach"
+name = "zellij-switch"
 version = "0.1.0"
 authors = ["Mostafa Qanbaryan <mostafaqanbaryan@gmail.com>"]
 edition = "2018"
