@@ -20,13 +20,10 @@ impl ZellijPlugin for State {
         let session_name = collection[0];
         let layout_name = "default";
         let layout: LayoutInfo = LayoutInfo::File(layout_name.to_string());
-        if collection.len() < 2 {
-            switch_session_with_layout(Some(&session_name), layout, None);
-            close_self();
-            return true;
+        let mut cwd = None;
+        if collection.len() == 2 {
+            cwd = Some(PathBuf::from(collection[1]));
         }
-
-        let cwd = Some(PathBuf::from(collection[1]));
         switch_session_with_layout(Some(&session_name), layout, cwd);
         close_self();
         true
