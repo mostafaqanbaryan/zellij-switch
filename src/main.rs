@@ -18,12 +18,17 @@ impl ZellijPlugin for State {
         let session_name = pipe_message.payload.unwrap().to_string();
         let collection: Vec<&str> = session_name.split("::").collect::<Vec<&str>>().clone();
         let session_name = collection[0];
-        let layout_name = "default";
-        let layout: LayoutInfo = LayoutInfo::File(layout_name.to_string());
+        let mut layout_name = "default".to_string();
         let mut cwd = None;
-        if collection.len() == 2 {
+
+        if collection.len() >= 2 {
             cwd = Some(PathBuf::from(collection[1]));
         }
+        if collection.len() == 3 {
+            layout_name = format!("{}.kdl", collection[2]);
+        }
+
+        let layout = LayoutInfo::File(layout_name);
         switch_session_with_layout(Some(&session_name), layout, cwd);
         close_self();
         true
