@@ -1,4 +1,5 @@
 # Zellij switch
+
 I needed this for my workflow, but it's is not great at all and has a few problems.
 
 But works for me!
@@ -18,4 +19,5 @@ Starting at version 0.2.0, you may additionally specify a layout (without .kdl e
 3. (Optional) For better integration, [use this script](https://github.com/mostafaqanbaryan/dotfiles/blob/main/scripts/sessions)
 
 ## Build
-- Clone the project and run `cargo build --target wasm32-wasi --release`
+
+- Clone the project and run `cargo build --target wasm32-wasip1 --release`
