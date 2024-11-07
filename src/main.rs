@@ -17,14 +17,26 @@ impl ZellijPlugin for State {
     fn pipe(&mut self, pipe_message: PipeMessage) -> bool {
         let session_name = pipe_message.payload.unwrap().to_string();
         let collection: Vec<&str> = session_name.split("::").collect::<Vec<&str>>().clone();
+
         let session_name = collection[0];
-        let layout_name = "default";
-        let layout: LayoutInfo = LayoutInfo::File(layout_name.to_string());
         let mut cwd = None;
-        if collection.len() == 2 {
-            cwd = Some(PathBuf::from(collection[1]));
-        }
-        switch_session_with_layout(Some(&session_name), layout, cwd);
+
+        let layout_name = match collection.len() {
+            2 => {
+                // Original format: session::cwd
+                cwd = Some(PathBuf::from(collection[1]));
+                "default".to_string()
+            }
+            3 => {
+                // New format: session::cwd::layout
+                cwd = Some(PathBuf::from(collection[1]));
+                format!("{}.kdl", collection[2])
+            }
+            _ => "default".to_string(),
+        };
+
+        let layout = LayoutInfo::File(layout_name);
+        switch_session_with_layout(Some(session_name), layout, cwd);
         close_self();
         true
     }
