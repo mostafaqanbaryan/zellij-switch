@@ -19,21 +19,15 @@ impl ZellijPlugin for State {
         let collection: Vec<&str> = session_name.split("::").collect::<Vec<&str>>().clone();
 
         let session_name = collection[0];
+        let mut layout_name = "default".to_string();
         let mut cwd = None;
 
-        let layout_name = match collection.len() {
-            2 => {
-                // Original format: session::cwd
-                cwd = Some(PathBuf::from(collection[1]));
-                "default".to_string()
-            }
-            3 => {
-                // New format: session::cwd::layout
-                cwd = Some(PathBuf::from(collection[1]));
-                format!("{}.kdl", collection[2])
-            }
-            _ => "default".to_string(),
-        };
+        if collection.len() >= 2 {
+            cwd = Some(PathBuf::from(collection[1]));
+        }
+        if collection.len() == 3 {
+            layout_name = format!("{}.kdl", collection[2]);
+        }
 
         let layout = LayoutInfo::File(layout_name);
         switch_session_with_layout(Some(&session_name), layout, cwd);
