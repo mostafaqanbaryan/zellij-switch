@@ -36,7 +36,7 @@ impl ZellijPlugin for State {
         };
 
         let layout = LayoutInfo::File(layout_name);
-        switch_session_with_layout(Some(session_name), layout, cwd);
+        switch_session_with_layout(Some(&session_name), layout, cwd);
         close_self();
         true
     }
