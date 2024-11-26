@@ -6,17 +6,12 @@ But works for me!
 
 ## Instruction
 
-    zellij pipe --plugin https://github.com/mostafaqanbaryan/zellij-switch/releases/download/v0.1.2/zellij-switch.wasm -- "$session_name::$cwd"
+    zellij pipe --plugin https://github.com/mostafaqanbaryan/zellij-switch/releases/download/v0.2.0/zellij-switch.wasm -- "--session zellij-session --cwd /home --layout default"
 
-As of version 0.1.1, this works without specifying `$cwd`:
+- `-s|--session` cannot have any space (like any other zellij session name).
+- `-c|--cwd` must be an absolute path and is optional.
+- `-l|--layout` is optional
 
-    zellij pipe --plugin https://github.com/mostafaqanbaryan/zellij-switch/releases/download/v0.1.2/zellij-switch.wasm -- "$session_name"
-
-Starting at version 0.1.2, you may additionally specify a layout (without .kdl extension) in the third position:
-
-    zellij pipe --plugin https://github.com/mostafaqanbaryan/zellij-switch/releases/download/v0.1.2/zellij-switch.wasm -- "$session_name::$cwd::$layout"
-
-3. (Optional) For better integration, [use this script](https://github.com/mostafaqanbaryan/dotfiles/blob/main/scripts/sessions)
 
 ## Build
 

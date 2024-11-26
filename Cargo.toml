@@ -1,6 +1,6 @@
 [package]
 name = "zellij-switch"
-version = "0.1.2"
+version = "0.2.0"
 authors = ["Mostafa Qanbaryan <mostafaqanbaryan@gmail.com>"]
 edition = "2018"
 
@@ -12,3 +12,4 @@ unicode-width = "0.1.10"
 humantime = "2.1.0"
 uuid = { version = "1.7.0", features = ["v4"] }
 zellij-tile = "0.40.0"
+lexopt = "0.3.0"
