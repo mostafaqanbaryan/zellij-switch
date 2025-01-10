@@ -29,7 +29,15 @@ If you use home-manager or maintain a Nix configuration, you can add `zellij-swi
 }
 ```
 
-2. Add `zellij-switch` to your packages:
+2. Add `zellij-switch` overlay to your `nixpkgs`:
+
+```nix
+{
+  nixpkgs.overlays = [ zellij-switch.overlays.default ];
+}
+```
+
+3. Add `zellij-switch` to your packages:
 
 ```nix
 environment.systemPackages = with pkgs; [
@@ -37,7 +45,7 @@ environment.systemPackages = with pkgs; [
 ];
 ```
 
-3. Apply your configuration:
+4. Apply your configuration:
 
 ```bash
 nixos-rebuild switch
