@@ -25,7 +25,7 @@ If you use home-manager or maintain a Nix configuration, you can add `zellij-swi
 
 ```nix
 {
-  inputs.zellij-switch.url = "github:yourusername/yourrepo";
+  inputs.zellij-switch.url = "github:mostafaqanbaryan/zellij-switch";
 }
 ```
 
