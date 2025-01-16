@@ -16,3 +16,37 @@ But works for me!
 ## Build
 
 - Clone the project and run `cargo build --target wasm32-wasip1 --release`
+
+## Installation on NixOS
+
+If you use home-manager or maintain a Nix configuration, you can add `zellij-switch` as easy as:
+
+1. Add this flake as an input in your Nix configuration:
+
+```nix
+{
+  inputs.zellij-switch.url = "github:mostafaqanbaryan/zellij-switch";
+}
+```
+
+2. Add `zellij-switch` overlay to your `nixpkgs`:
+
+```nix
+{
+  nixpkgs.overlays = [ zellij-switch.overlays.default ];
+}
+```
+
+3. Add `zellij-switch` to your packages:
+
+```nix
+environment.systemPackages = with pkgs; [
+  zellij-switch
+];
+```
+
+4. Apply your configuration:
+
+```bash
+nixos-rebuild switch
+```
