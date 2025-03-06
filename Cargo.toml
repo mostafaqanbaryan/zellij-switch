@@ -2,7 +2,7 @@
 name = "zellij-switch"
 version = "0.2.0"
 authors = ["Mostafa Qanbaryan <mostafaqanbaryan@gmail.com>"]
-edition = "2018"
+edition = "2024"
 
 [dependencies]
 ansi_term = "0.12.1"
@@ -13,3 +13,4 @@ humantime = "2.1.0"
 uuid = { version = "1.7.0", features = ["v4"] }
 zellij-tile = "0.40.0"
 lexopt = "0.3.0"
+shell-words = { version = "1.1.0", default-features = false }
