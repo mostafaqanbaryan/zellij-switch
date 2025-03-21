@@ -6,7 +6,7 @@ But works for me!
 
 ## Instruction
 
-    zellij pipe --plugin https://github.com/mostafaqanbaryan/zellij-switch/releases/download/v0.2.0/zellij-switch.wasm -- "--session zellij-session --cwd /home --layout default"
+    zellij pipe --plugin https://github.com/mostafaqanbaryan/zellij-switch/releases/download/0.2.0/zellij-switch.wasm -- "--session zellij-session --cwd /home --layout default"
 
 - `-s|--session` cannot have any space (like any other zellij session name).
 - `-c|--cwd` must be an absolute path and is optional.
