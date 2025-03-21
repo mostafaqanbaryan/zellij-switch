@@ -50,8 +50,8 @@ impl ZellijPlugin for State {
     }
 
     fn pipe(&mut self, pipe_message: PipeMessage) -> bool {
-        let payload = pipe_message.payload.unwrap().to_string();
-        let parser = lexopt::Parser::from_args(payload.split(" "));
+        let payload = pipe_message.payload.unwrap();
+        let parser = lexopt::Parser::from_args(shell_words::split(&payload).unwrap());
         let args = parse_args(parser).unwrap();
         let session_name = args.session.unwrap();
 
